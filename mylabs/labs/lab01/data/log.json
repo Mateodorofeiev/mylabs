@@ -97,5 +97,38 @@
             "DataVault771341!"
         ],
         "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "developer_alex",
+        "result": "success",
+        "timestamp": "2026-09-25 09:06:33",
+        "args": [
+            "developer_alex",
+            "DevCode#202621345"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "dmytro_admin",
+        "result": "failure",
+        "timestamp": "2026-09-25 09:06:33",
+        "args": [
+            "dmytro_admin",
+            "CyberGuard#443123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "unknown",
+        "result": "failure",
+        "timestamp": "2026-09-25 09:06:33",
+        "args": [
+            "unknown",
+            "DataVault771341!"
+        ],
+        "kwargs": {}
     }
 ]

@@ -1,0 +1,12 @@
+host,port,service,status,response_time,notes
+127.0.0.1,22,SSH,OFFLINE,,Timeout
+127.0.0.1,80,HTTP,OFFLINE,,Timeout
+localhost,443,HTTPS,OFFLINE,,Timeout
+192.0.2.10,80,HTTP,OFFLINE,,Timeout
+198.51.100.20,443,HTTPS,OFFLINE,,Timeout
+203.0.113.30,22,SSH,OFFLINE,,Timeout
+service.example.invalid,8080,Unknown,OFFLINE,,DNS error
+db.example.invalid,5432,Unknown,OFFLINE,,DNS error
+bad host name,80,HTTP,INVALID,,Invalid host
+999.10.10.10,443,HTTPS,INVALID,,Invalid host
+api.example.invalid,70000,Unknown,INVALID,,Invalid port

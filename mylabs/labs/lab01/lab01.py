@@ -3,13 +3,10 @@ import random
 import sys
 
 # Підключення спільного модуля даних
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
-print(
-    f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER}\n| Група: {GROUP_NAME}\n"
-)
+
+print(f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER}\n| Група: {GROUP_NAME}\n")
 
 # Початковий список паролів для перевірки
 passwords = [
@@ -22,7 +19,7 @@ passwords = [
     "Secur1ty@Pro",
     "password1",
     "Adv@nced123",
-    "guest123",
+    "ybersecurada",
 ]
 
 # Критерії складності пароля
@@ -67,16 +64,16 @@ for a in passwords:
         and (not criteria["require_special"] or has_special)
     )
     # Класифікація рівня надійності пароля
-    if a in forbidden_passwords or len(a)< min_length:
-        strenght= "Заборонений!"
-    elif safe_criteria and len(a)>= min_length +4 and passwords.count(a) ==1:
-        strenght= "потужний пароль"
+    if a in forbidden_passwords or len(a) < min_length:
+        strenght = "Заборонений!"
+    elif safe_criteria and len(a) >= min_length + 4 and passwords.count(a) == 1:
+        strenght = "потужний пароль"
     elif safe_criteria:
-        strenght ="сильний пароль"
-    elif len(a)>= min_length and (has_digit or has_upper or has_lower or has_special ):
+        strenght = "середній"
+    elif len(a) >= min_length and (has_digit or has_upper or has_lower or has_special):
         strenght = "Задовільнено"
     else:
-        strenght ="слабий пароль"
+        strenght = "слабий пароль"
 
     is_unique = "Так" if passwords.count(a) == 1 else "Ні"
     result.append((a, len(a), is_unique, strenght))
@@ -89,10 +86,6 @@ print(
 print("-" * 65)
 
 for idx, (pwd, length, is_unique, strength) in enumerate(result, start=1):
-    print(
-        f"{idx:<3} | {pwd:<18} | {length:<8} | {is_unique:<10} | {strength:<15}"
-    )
+    print(f"{idx:<3} | {pwd:<18} | {length:<8} | {is_unique:<10} | {strength:<15}")
 
 print("=" * 65)
-
-

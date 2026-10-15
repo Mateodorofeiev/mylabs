@@ -2,15 +2,12 @@ import os
 import sys
 
 # 1. Імпорт індивідуальних параметрів студента
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
-print(
-    f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER} | Група: {GROUP_NAME}\n"
-)
 
-# Вхідні дані Варіанта 5 (із зображення)
+print(f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER} | Група: {GROUP_NAME}\n")
+
+# Вхідні дані Варіанта 5
 users = {
     "forensic_lead": {
         "role": "forensic_analyst",
@@ -62,7 +59,7 @@ security_levels = ("Basic", "Standard", "Protected", "Maximum")
 blocked_users = {"archived_usr", "terminated_vendor", "security_breach"}
 
 
-# 2. Виведення структурованої таблиці ресурсів
+#  Виведення структурованої таблиці ресурсів
 print("=" * 65)
 print("СПИСОК РЕСУРСІВ СИСТЕМИ ТА ЇХНІ РІВНІ ДОСТУПУ")
 print("=" * 65)
@@ -74,7 +71,7 @@ for res_name, res_level in resources:
     print(f"{res_name:<22} | {res_level:<9} | {level_text}")
 
 
-# 3. Алгоритм перевірки доступу
+# Алгоритм перевірки доступу
 def check_access(username: str, resource: tuple) -> str:
     res_name, res_level = resource
 
@@ -87,6 +84,9 @@ def check_access(username: str, resource: tuple) -> str:
         return "DENY (User is blocked)"
 
     user_info = users[username]
+    if not user_info:
+        print("User not found")
+        return "DENY (User not found)"
 
     # Перевірка активності акаунту
     if not user_info.get("active", False):
@@ -99,7 +99,7 @@ def check_access(username: str, resource: tuple) -> str:
         return "DENY (Insufficient clearance)"
 
 
-# 4. Виведення результатів перевірки
+#  Виведення результатів перевірки
 print("\n" + "=" * 65)
 print("РЕЗУЛЬТАТИ ПЕРЕВІРКИ ДОСТУПУ")
 print("=" * 65)

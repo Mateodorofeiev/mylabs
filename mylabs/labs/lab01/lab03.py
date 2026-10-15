@@ -5,14 +5,12 @@ import os
 import sys
 from datetime import datetime
 
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-)
+from mylabs.labs.lab01.lab01 import passwords
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
-print(
-    f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER} | Група: {GROUP_NAME}\n"
-)
+print(f"Студент: {STUDENT_NAME} | Варіант: {VARIANT_NUMBER} | Група: {GROUP_NAME}\n")
 
 # Параметри Варіанта 5 (згідно з таблицею)
 min_len = 16
@@ -37,13 +35,15 @@ def generate_hash(password: str, salt: str = "00000") -> str:
     if not password or not salt:
         raise ValueError("Password and salt must not be None or empty")
     if len(password) < min_len:
-        raise ValidationError(
-            f"Пароль має містити щонайменше {min_len} символів"
-        )
+        raise ValidationError(f"Пароль має містити щонайменше {min_len} символів")
 
     combined = (password + salt).encode("utf-8")
     # Правильний алгоритм згідно з Варіантом 5
-    return hashlib.sha3_256(combined).hexdigest()
+    generated_hash = hashlib.sha3_256(combined).hexdigest()
+
+    # Виведення хешу
+    print(f"[HASH GENERATED]: {generated_hash}")
+    return generated_hash
 
 
 def log_event(func):
@@ -99,6 +99,8 @@ def create_users(users_list):
     with open(CSV_Path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         for user, pwd in users_list:
+            if len(passwords) < 4 or len(user) < 4:
+                continue
             writer.writerow(create_user(user, pwd))
 
 
