@@ -228,3 +228,5 @@ labs/lab03/data/*.db
 labs/lab03/data/*.db-*
 =======
 >>>>>>> 40efc97371a4461d7f6f29a0a3c04367c32c6bb4
+
+.idea/
