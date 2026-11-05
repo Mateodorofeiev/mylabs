@@ -150,7 +150,11 @@ activemq-data/
 # Environments
 .env
 .envrc
+<<<<<<< HEAD
 ../mylabs/.venv
+=======
+.venv
+>>>>>>> 40efc97371a4461d7f6f29a0a3c04367c32c6bb4
 env/
 venv/
 ENV/
@@ -216,8 +220,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+<<<<<<< HEAD
 
 labs/lab03/data/*.sqlite3
 labs/lab03/data/*.sqlite3-*
 labs/lab03/data/*.db
 labs/lab03/data/*.db-*
+=======
+>>>>>>> 40efc97371a4461d7f6f29a0a3c04367c32c6bb4
